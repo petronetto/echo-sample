@@ -1,0 +1,17 @@
+version: '2'
+services:
+  echo-app:
+    container_name: echo-app
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: echoapp
+      MYSQL_USER: gouser
+      MYSQL_PASSWORD: secret
+    volumes:
+     - ./data:/var/lib/mysql
+    ports:
+     - "3306:3306"
+volumes:
+   data:
+      driver: local
